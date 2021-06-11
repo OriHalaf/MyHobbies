@@ -14,7 +14,6 @@
         <activity android:name=".Share" />
         <activity android:name=".SecendActivity" />
         <activity android:name=".RateUs" />
-        <activity android:name=".my_profile" />
         <activity android:name=".log_out" />
         <activity android:name=".edit_profile" />
         <activity android:name=".add_new_category" />
