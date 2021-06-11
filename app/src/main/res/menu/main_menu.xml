@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item
+            android:id = "@+id/nav_home"
+            android:title="Home"
+            android:icon="@drawable/home_icon"/>
+
+        <item
+            android:id = "@+id/nav_add_category"
+            android:title="Add new Category"
+            android:icon="@drawable/add_icon"/>
+    </group>
+
+    <item android:title="Profile">
+
+        <menu>
+            <group android:checkableBehavior="single">
+                <item
+                    android:id = "@+id/nav_my_profile"
+                    android:title="My Profile"
+                    android:icon="@drawable/profile2"/>
+                <item
+                    android:id = "@+id/nav_edit_profile"
+                    android:title="Edit Profile"
+                    android:icon="@drawable/editprofile_icon"/>
+            </group>
+        </menu>
+    </item>
+
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id = "@+id/nav_share"
+                android:title="share"
+                android:icon="@drawable/share_icon"/>
+            <item
+                android:id = "@+id/nav_rate"
+                android:title="Rate Us"
+                android:icon="@drawable/rate_icon"/>
+        </menu>
+    </item>
+
+    <item android:title="Log out">
+        <menu>
+            <item
+                android:id = "@+id/nav_log_out"
+                android:title="Log out"
+                android:icon="@drawable/logout_icon"/>
+        </menu>
+    </item>
+
+
+</menu>
