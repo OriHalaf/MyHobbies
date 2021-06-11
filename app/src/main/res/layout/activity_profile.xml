@@ -24,16 +24,41 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="My Profile"
+            android:textSize="40dp"
+            android:textStyle="bold"
 
-    <LinearLayout
-        android:id="@+id/linearLayout5"
-        android:layout_width="0dp"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"></LinearLayout>
+
+
+
+
+
+
+            />
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="255dp"
+            android:layout_height="78dp"
+            android:layout_gravity="center"
+            android:foregroundGravity="center"
+            app:srcCompat="@drawable/hobbies" />
+
+        <ImageView
+            android:id="@+id/imageView7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/profile"
+            android:layout_gravity="center"
+            />
+
+
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -48,6 +73,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Notifiction"
+            android:textSize="25dp"
+            android:textStyle="bold" />
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -55,13 +89,65 @@
             android:elevation="5dp"
             android:orientation="vertical">
 
+
+
+
             <ImageView
                 android:id="@+id/imageView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="54dp"
+                android:layout_height="60dp"
                 android:layout_margin="10dp"
                 android:background="@drawable/background_grey"
-                app:srcCompat="@drawable/notification" />
+                android:layout_gravity="center"
+                app:srcCompat="@drawable/editprofile_icon"
+                />
+
+
+            <EditText
+            android:id="@+id/MyNameTextView"
+            android:layout_width="194dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="My name:"
+            android:textSize="40sp"
+            android:textStyle="bold|italic" />
+
+
+            <TextView
+                android:id="@+id/MyEmailTextView"
+                android:layout_width="194dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="Email:"
+                android:textSize="40sp"
+                android:textStyle="bold|italic" />
+
+            <TextView
+                android:id="@+id/FromTextView"
+                android:layout_width="194dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="From:"
+                android:textSize="40sp"
+                android:textStyle="bold|italic" />
+
+
+            <TextView
+                android:id="@+id/MyHoobiesTextView"
+                android:layout_width="237dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="My Hobbie:"
+                android:textSize="40sp"
+                android:textStyle="bold|italic" />
+
+            <LinearLayout
+                android:id="@+id/linearLayout5"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:textAlignment="center"></LinearLayout>
 
             <TextView
                 android:id="@+id/textView15"
@@ -71,7 +157,16 @@
                 android:textAlignment="center"
                 android:textColor="#000000"
                 android:textStyle="bold" />
+
+            <EditText
+                android:id="@+id/editTextTextEmailAddress3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textEmailAddress" />
         </LinearLayout>
+
+
 
     </LinearLayout>
 
