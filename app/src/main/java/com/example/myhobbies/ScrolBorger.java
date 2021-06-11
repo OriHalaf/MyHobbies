@@ -7,8 +7,13 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 
 import androidx.appcompat.widget.Toolbar;
 
@@ -20,7 +25,7 @@ public class ScrolBorger extends AppCompatActivity implements NavigationView.OnN
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
-
+    ImageButton Fitness;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,7 +34,6 @@ public class ScrolBorger extends AppCompatActivity implements NavigationView.OnN
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         toolbar = findViewById(R.id.toolbar);
-
         setSupportActionBar(toolbar);
         navigationView.bringToFront();
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout,toolbar,
@@ -41,7 +45,17 @@ public class ScrolBorger extends AppCompatActivity implements NavigationView.OnN
         navigationView.setNavigationItemSelectedListener(this);
 
         navigationView.setCheckedItem(R.id.nav_home);
+
+        // תמונה לחיצה להיכנס לדף וצריך להכין את זה לכל הדפים שבדף קטגוריות
+        ImageView img = (ImageView) findViewById(R.id.Fitness);
+        img.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intentCategory = new Intent (ScrolBorger.this,Food.class);
+                startActivity(intentCategory);            }
+        });
+
     }
+
 
     @Override
     public void onBackPressed() {
@@ -88,6 +102,7 @@ public class ScrolBorger extends AppCompatActivity implements NavigationView.OnN
                 Intent intentLogout = new Intent (ScrolBorger.this,MainActivity.class);
                 startActivity(intentLogout);
                 break;
+
         }
 
         drawerLayout.closeDrawer(GravityCompat.START);
@@ -95,4 +110,5 @@ public class ScrolBorger extends AppCompatActivity implements NavigationView.OnN
 
         return true;
     }
+
 }
