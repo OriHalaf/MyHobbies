@@ -79,7 +79,7 @@ public class ScrolBorger extends AppCompatActivity implements NavigationView.OnN
                 break;
 
             case R.id.nav_my_profile:
-                Intent intentProfile = new Intent (ScrolBorger.this,my_profile.class);
+                Intent intentProfile = new Intent (ScrolBorger.this,Profile.class);
                 startActivity(intentProfile);
                 break;
 
