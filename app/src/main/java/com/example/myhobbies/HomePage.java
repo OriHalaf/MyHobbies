@@ -23,6 +23,7 @@ public class HomePage extends AppCompatActivity {
     FirebaseAuth mAuth;
     FirebaseDatabase database;
     DatabaseReference myRef;
+    //Royi!!!
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
