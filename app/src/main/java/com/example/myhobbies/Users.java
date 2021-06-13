@@ -1,8 +1,12 @@
 package com.example.myhobbies;
 
+import android.media.Image;
+import android.widget.ImageView;
+
 public class Users {
     String FirstName;
     String LastName;
+    ImageView Profile;
 
     public Users() {
     }
@@ -27,5 +31,13 @@ public class Users {
 
     public void setLastName(String lastName) {
         LastName = lastName;
+    }
+
+    public ImageView getProfile() {
+        return Profile;
+    }
+
+    public void setProfile(ImageView profile) {
+        Profile = profile;
     }
 }
