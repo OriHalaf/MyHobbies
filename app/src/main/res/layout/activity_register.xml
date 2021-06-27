@@ -99,7 +99,14 @@
                 android:text="UplaodImage"
                 tools:ignore="OnClick">
             </Button>
-
+            <Button
+                android:id="@+id/TakePicture"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="TakePicture"
+                android:text="Take Picture"
+                tools:ignore="OnClick">
+            </Button>
             <ImageView
                 android:id="@+id/MyImage"
                 android:layout_width="50dp"

@@ -82,21 +82,3 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
 }
 
-//Login.setOnClickListener(new View.OnClickListener(){
-//
-//
-//
-//@Override
-//public void onClick(View v) {
-//
-//        }
-//        });
-//
-//        Register.setOnClickListener(new View.OnClickListener(){
-//@Override
-//public void onClick(View v) {
-//        Intent i = new Intent(MainActivity.this,register.class);
-//
-//        startActivity(i);
-//        }
-//        });

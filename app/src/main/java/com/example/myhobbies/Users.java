@@ -1,19 +1,22 @@
 package com.example.myhobbies;
 
-import android.media.Image;
-import android.widget.ImageView;
+import android.net.Uri;
 
 public class Users {
     String FirstName;
     String LastName;
-    ImageView Profile;
+    String Email;
+    String Profile;
+
 
     public Users() {
     }
 
-    public Users(String firstName, String lastName) {
-        FirstName = firstName;
-        LastName = lastName;
+    public Users(String toString, String toString1, String email, String profile) {
+        this.FirstName = toString;
+        this.LastName = toString1;
+        this.Email = email;
+        this.Profile = profile;
 
     }
 
@@ -29,15 +32,18 @@ public class Users {
         return LastName;
     }
 
-    public void setLastName(String lastName) {
-        LastName = lastName;
-    }
+    public void setLastName(String lastName) { LastName = lastName; }
 
-    public ImageView getProfile() {
-        return Profile;
-    }
+    public String getProfile() { return Profile; }
 
-    public void setProfile(ImageView profile) {
-        Profile = profile;
-    }
+    public void setProfile(String profile) { Profile = profile; }
+
+    public String getEmail() { return Email; }
+
+    public void setEmail(String email) { Email = email; }
+
+
+
+
+
 }
