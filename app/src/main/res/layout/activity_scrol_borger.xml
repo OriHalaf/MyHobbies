@@ -127,13 +127,13 @@
                                 android:text="Fittnes"
                                 android:textSize="24sp"
                                 />
-                            <ImageView
-                                android:id="@+id/Fitness"
-                                android:layout_width="75dp"
-                                android:layout_height="75dp"
-                                android:layout_centerHorizontal="true"
-                                android:layout_marginTop="15dp"
-                                app:srcCompat="@drawable/fitness" />
+
+                        <ImageView
+                            android:id="@+id/Fitness"
+                            android:layout_width="75dp"
+                            android:layout_height="75dp"
+                            android:layout_marginTop="15dp"
+                            app:srcCompat="@drawable/fitness" />
 
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>

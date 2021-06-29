@@ -2,9 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myhobbies">
 
-    <uses-permission-sdk-23 android:name="android.permission.INTERNET"/>
-    <uses-permission-sdk-23 android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission-sdk-23 android:name="android.permission.INTERNET" />
+    <uses-permission-sdk-23 android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -12,7 +14,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name=".Food"></activity>
+        <activity android:name=".Fitness"></activity>
+        <activity android:name=".searchpage" />
+        <activity android:name=".Food" />
         <activity android:name=".Profile" />
         <activity android:name=".Share" />
         <activity android:name=".SecendActivity" />

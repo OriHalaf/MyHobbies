@@ -25,7 +25,7 @@ public class ScrolBorger extends AppCompatActivity implements NavigationView.OnN
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
-    ImageButton Fitness;
+    ImageView Fitness;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,10 +47,10 @@ public class ScrolBorger extends AppCompatActivity implements NavigationView.OnN
         navigationView.setCheckedItem(R.id.nav_home);
 
         // תמונה לחיצה להיכנס לדף וצריך להכין את זה לכל הדפים שבדף קטגוריות
-        ImageView img = (ImageView) findViewById(R.id.Fitness);
-        img.setOnClickListener(new View.OnClickListener() {
+        Fitness = (ImageView) findViewById(R.id.Fitness);
+        Fitness.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Intent intentCategory = new Intent (ScrolBorger.this,Food.class);
+                Intent intentCategory = new Intent (ScrolBorger.this,Fitness.class);
                 startActivity(intentCategory);            }
         });
 

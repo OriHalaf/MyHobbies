@@ -7,20 +7,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
 
-public class Food extends AppCompatActivity implements View.OnClickListener {
-
+public class Fitness extends AppCompatActivity implements View.OnClickListener{
     ImageButton Search;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_food);
+        setContentView(R.layout.activity_fitness);
 
         InitViews();
         InitButton();
-
     }
-
     private void InitViews() {
         Search = findViewById(R.id.Search);
 
@@ -35,7 +31,7 @@ public class Food extends AppCompatActivity implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.Search:
-                Intent a = new Intent(Food.this, searchpage.class);
+                Intent a = new Intent(Fitness.this, searchpage.class);
                 startActivity(a);
                 break;
         }
