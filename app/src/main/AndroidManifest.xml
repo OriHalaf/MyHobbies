@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name=".Fitness"></activity>
+        <activity android:name=".list_layout"></activity>
+        <activity android:name=".Fitness" />
         <activity android:name=".searchpage" />
         <activity android:name=".Food" />
         <activity android:name=".Profile" />

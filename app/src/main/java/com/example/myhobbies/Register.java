@@ -53,7 +53,7 @@ public class Register extends Activity implements View.OnClickListener{
     FirebaseAuth mAuth;
     FirebaseDatabase database;
     DatabaseReference myRef;
-    Uri imageUri;
+    Uri imageUri ;
     String url;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
@@ -81,74 +81,68 @@ public class Register extends Activity implements View.OnClickListener{
         btnToLogin.setOnClickListener(this);
         UplaodImage.setOnClickListener(this);
         TakePicture.setOnClickListener(this);
-
-
-
     }
 
     private void InitViews() {
         btnToLogin = findViewById(R.id.btnToLogin);
         UplaodImage = findViewById(R.id.UplaodImage);
         TakePicture = findViewById(R.id.TakePicture);
-
     }
+
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btnToLogin:
                 UplaodImage();
-                //InItButtonSignUp();
                 break;
             case R.id.UplaodImage:
                 getImageFromGallery();
                 break;
             case R.id.TakePicture:
-                takePicture();
+                //takePicture();
                 break;
         }
     }
 
     // האלעת תמונה על ידי הפעלת המצלמה
-    private void takePicture() {
-       
-        if(checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
-            requestPermissions(new String[]{Manifest.permission.CAMERA},Permission_CAMERA);
-        }
-        else {
-            Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-            startActivityForResult(i,CAPTURE_IMAGE);
-
-        }
-    }
-
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        if(requestCode == Permission_CAMERA){
-            if(grantResults[0]==PackageManager.PERMISSION_GRANTED){
-                Toast.makeText(getApplicationContext(),"You did permission to the camera",Toast.LENGTH_LONG).show();
-
-                takePicture();
-            }
-            else {
-                Toast.makeText(getApplicationContext(),"You did not bring permission to the camera",Toast.LENGTH_LONG).show();
-
-            }
-        }
-    }
-
+//    private void takePicture() {
+//
+//        if(checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
+//            requestPermissions(new String[]{Manifest.permission.CAMERA},Permission_CAMERA);
+//        }
+//        else {
+//            Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+//            startActivityForResult(i,CAPTURE_IMAGE);
+//
+//        }
+//    }
+//
+//    @Override
+//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+//        if(requestCode == Permission_CAMERA){
+//            if(grantResults[0]==PackageManager.PERMISSION_GRANTED){
+//                Toast.makeText(getApplicationContext(),"You did permission to the camera",Toast.LENGTH_LONG).show();
+//
+//                takePicture();
+//            }
+//            else {
+//                Toast.makeText(getApplicationContext(),"You did not bring permission to the camera",Toast.LENGTH_LONG).show();
+//            }
+//        }
+//    }
+//
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+               switch (requestCode){
+                   case GET_IMAGE_FROM_GALLERY:
+                       if(resultCode == RESULT_OK){
+                           imageUri = data.getData();
 
-                if(requestCode == CAPTURE_IMAGE && resultCode == RESULT_OK){
-                    Bitmap bitmap = (Bitmap) data.getExtras().get("data");
-                    Uri uri = getImageUri(this,bitmap);
-                    storageRef.putFile(uri);
-                    MyImage.setImageBitmap(bitmap);
-
-                }
-
+                       }
+                       break;
+               }
 
         }
 
@@ -161,7 +155,8 @@ public class Register extends Activity implements View.OnClickListener{
     }
 
     public void UplaodImage(){
-        if (imageUri !=null){
+        if (imageUri != null)
+        {
             storageRef = FirebaseStorage.getInstance().getReference().child("MyImages/")
                     .child(Email.getText().toString()+"."+getFileExtention(imageUri));
             storageRef.putFile(imageUri).addOnCompleteListener(new OnCompleteListener<UploadTask.TaskSnapshot>() {
@@ -176,9 +171,7 @@ public class Register extends Activity implements View.OnClickListener{
                     });
                 }
             });
-
         }
-
     }
 
     private String getFileExtention(Uri imageUri){
@@ -194,21 +187,21 @@ public class Register extends Activity implements View.OnClickListener{
         return Uri.parse(path);
     }
 
-    private void uploadToFireBase(byte [] by){
-        StorageReference sr = storageRef.child("MyImages/" +mAuth.getUid() +".jpg");
-        sr.putBytes(by).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-            @Override
-            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                Toast.makeText( Register.this,""+"Successfully UpLoad",Toast.LENGTH_SHORT).show();
-
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText( Register.this,""+"Dosn`t UpLoad",Toast.LENGTH_SHORT).show();
-            }
-        });
-    }
+//    private void uploadToFireBase(byte [] by){
+//        StorageReference sr = storageRef.child("MyImages/" +mAuth.getUid() +".jpg");
+//        sr.putBytes(by).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+//            @Override
+//            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+//                Toast.makeText( Register.this,""+"Successfully UpLoad",Toast.LENGTH_SHORT).show();
+//
+//            }
+//        }).addOnFailureListener(new OnFailureListener() {
+//            @Override
+//            public void onFailure(@NonNull Exception e) {
+//                Toast.makeText( Register.this,""+"Dosn`t UpLoad",Toast.LENGTH_SHORT).show();
+//            }
+//        });
+//    }
 
 
 
