@@ -41,10 +41,10 @@ public class searchpage extends AppCompatActivity {
     }
     private void FirebaseUserSearch(){
         FirebaseRecyclerAdapter<Users , UsersViewHolders> firebaseRecyclerAdapter = new FirebaseRecyclerAdapter<Users, UsersViewHolders>(
-                Users.class,
-                R.layout.activity_list_layout,
-                UsersViewHolders.class,
-                mUserDatabase
+//                Users.class,
+//                R.layout.activity_list_layout,
+//                UsersViewHolders.class,
+//                mUserDatabase
         ) {
             @Override
             protected void onBindViewHolder(@NonNull UsersViewHolders holder, int position, @NonNull Users model) {
