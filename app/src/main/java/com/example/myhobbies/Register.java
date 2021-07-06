@@ -2,11 +2,15 @@ package com.example.myhobbies;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import android.Manifest;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -99,59 +103,133 @@ public class Register extends Activity implements View.OnClickListener{
                 getImageFromGallery();
                 break;
             case R.id.TakePicture:
-                //takePicture();
+                takePicture();
                 break;
         }
     }
 
     // האלעת תמונה על ידי הפעלת המצלמה
-//    private void takePicture() {
-//
-//        if(checkSelfPermission(Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED){
-//            requestPermissions(new String[]{Manifest.permission.CAMERA},Permission_CAMERA);
-//        }
-//        else {
-//            Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-//            startActivityForResult(i,CAPTURE_IMAGE);
-//
-//        }
-//    }
-//
-//    @Override
-//    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-//        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        if(requestCode == Permission_CAMERA){
-//            if(grantResults[0]==PackageManager.PERMISSION_GRANTED){
-//                Toast.makeText(getApplicationContext(),"You did permission to the camera",Toast.LENGTH_LONG).show();
-//
-//                takePicture();
-//            }
-//            else {
-//                Toast.makeText(getApplicationContext(),"You did not bring permission to the camera",Toast.LENGTH_LONG).show();
-//            }
-//        }
-//    }
-//
+    private void takePicture() {
+        if(ContextCompat.checkSelfPermission(Register.this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED){
+
+           Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+           startActivityForResult(i,CAPTURE_IMAGE);
+        }
+        else {
+            requestCameraPermission();
+        }
+    }
+
+    private void requestCameraPermission() {
+        if(ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.READ_EXTERNAL_STORAGE)){
+            new AlertDialog.Builder(this).
+                    setTitle("Permission needed").
+                    setMessage("This Permission is for use the CAMERA :)").
+                    setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            ActivityCompat.requestPermissions(Register.this,new String[]{Manifest.permission.CAMERA}
+                                    ,Permission_CAMERA);
+
+                        }
+                    })
+                    .setNegativeButton("cencel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    })
+                    .create().show();
+        }
+        else{
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},Permission_CAMERA);
+        }
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if(requestCode == Permission_CAMERA){
+            if(grantResults[0]==PackageManager.PERMISSION_GRANTED){
+                Toast.makeText(getApplicationContext(),"You did permission to the camera",Toast.LENGTH_LONG).show();
+                takePicture();
+            }
+            else {
+                Toast.makeText(getApplicationContext(),"You did not bring permission to the camera",Toast.LENGTH_LONG).show();
+            }
+        }
+        if(requestCode == GET_IMAGE_FROM_GALLERY){
+            if(grantResults[0]==PackageManager.PERMISSION_GRANTED){
+                Toast.makeText(getApplicationContext(),"You did permission to the Gallery",Toast.LENGTH_LONG).show();
+                takePicture();
+            }
+            else {
+                Toast.makeText(getApplicationContext(),"You did not bring permission to the Gallery",Toast.LENGTH_LONG).show();
+            }
+        }
+    }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-               switch (requestCode){
-                   case GET_IMAGE_FROM_GALLERY:
-                       if(resultCode == RESULT_OK){
-                           imageUri = data.getData();
+        switch (requestCode){
+            case GET_IMAGE_FROM_GALLERY:
+                if(resultCode == RESULT_OK){
+                    imageUri = data.getData();
+                }
+                break;
+            case CAPTURE_IMAGE:
+                if(resultCode == RESULT_OK){
+                    Bitmap photo = (Bitmap) data.getExtras().get("data");
+                    imageUri = getImageUri(Register.this,photo);
+                    storageRef.putFile(imageUri);
+                    MyImage.setImageBitmap(photo);
 
-                       }
-                       break;
-               }
+                }
 
         }
+    }
+
 
     // האלעת תמונה מתוך תיקיה בטלפון
     private void getImageFromGallery() {
-        Intent Upload = new Intent();
-        Upload.setType("image/*");
-        Upload.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Upload,GET_IMAGE_FROM_GALLERY);
+        if(ContextCompat.checkSelfPermission(Register.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
+            Toast.makeText(Register.this,"You did permission to the camera",Toast.LENGTH_LONG).show();
+            Intent Upload = new Intent();
+            Upload.setType("image/*");
+            Upload.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(Upload,GET_IMAGE_FROM_GALLERY);
+        }
+        else {
+            requestStoragerPermission();
+        }
+    }
+
+    private void requestStoragerPermission() {
+
+        if(ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.READ_EXTERNAL_STORAGE)){
+            new AlertDialog.Builder(this).
+                    setTitle("Permission needed").
+                    setMessage("This Permission is for use the CAMERA :)").
+                    setPositiveButton("ok", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            ActivityCompat.requestPermissions(Register.this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE}
+                                    ,GET_IMAGE_FROM_GALLERY);
+
+                        }
+                    })
+                    .setNegativeButton("cencel", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialogInterface, int i) {
+                            dialogInterface.dismiss();
+                        }
+                    })
+                    .create().show();
+        }
+        else{
+            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},Permission_CAMERA);
+        }
     }
 
     public void UplaodImage(){
@@ -171,6 +249,8 @@ public class Register extends Activity implements View.OnClickListener{
                     });
                 }
             });
+        }else{
+            Toast.makeText(getApplicationContext(),"No Image",Toast.LENGTH_LONG).show();
         }
     }
 
@@ -218,8 +298,8 @@ public class Register extends Activity implements View.OnClickListener{
                         if(task.isSuccessful()){
                             Users user = new Users(FirstName.getText().toString(),LastName.getText().toString(),Email.getText().toString(),url);
                             myRef.child(mAuth.getUid()).setValue(user);
-                           // Intent i = new Intent(Register.this,MainActivity.class);
-                          //  i.putExtra("profilePic",imageUri);
+                            // Intent i = new Intent(Register.this,MainActivity.class);
+                            //  i.putExtra("profilePic",imageUri);
                             startActivity(new Intent(Register.this,MainActivity.class));
                         }
                         else{
@@ -231,3 +311,6 @@ public class Register extends Activity implements View.OnClickListener{
 
     }
 }
+
+
+
