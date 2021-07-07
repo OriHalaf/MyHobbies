@@ -204,6 +204,7 @@ public class Register extends Activity implements View.OnClickListener{
             requestStoragerPermission();
         }
     }
+    //
 
     private void requestStoragerPermission() {
 
