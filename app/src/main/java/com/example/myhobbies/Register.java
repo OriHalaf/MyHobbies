@@ -204,7 +204,7 @@ public class Register extends Activity implements View.OnClickListener{
             requestStoragerPermission();
         }
     }
-//
+
     private void requestStoragerPermission() {
 
         if(ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.READ_EXTERNAL_STORAGE)){

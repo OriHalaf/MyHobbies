@@ -20,7 +20,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class searchpage extends AppCompatActivity {
-//
+
     EditText SearchLine;
     ImageButton BtnSearchView;
     RecyclerView recyclerList;
