@@ -66,9 +66,7 @@ public class Register extends Activity implements View.OnClickListener{
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
-
         storageRef = FirebaseStorage.getInstance().getReference();
-
         mAuth=FirebaseAuth.getInstance();
         database = FirebaseDatabase.getInstance();
         myRef = database.getReference("Users");
@@ -110,8 +108,7 @@ public class Register extends Activity implements View.OnClickListener{
 
     // האלעת תמונה על ידי הפעלת המצלמה
     private void takePicture() {
-        if(ContextCompat.checkSelfPermission(Register.this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED){
-
+        if(ContextCompat.checkSelfPermission(this, Manifest.permission.CAMERA) == PackageManager.PERMISSION_GRANTED){
            Intent i = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
            startActivityForResult(i,CAPTURE_IMAGE);
         }
@@ -121,6 +118,7 @@ public class Register extends Activity implements View.OnClickListener{
     }
 
     private void requestCameraPermission() {
+
         if(ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.READ_EXTERNAL_STORAGE)){
             new AlertDialog.Builder(this).
                     setTitle("Permission needed").
@@ -130,7 +128,6 @@ public class Register extends Activity implements View.OnClickListener{
                         public void onClick(DialogInterface dialogInterface, int i) {
                             ActivityCompat.requestPermissions(Register.this,new String[]{Manifest.permission.CAMERA}
                                     ,Permission_CAMERA);
-
                         }
                     })
                     .setNegativeButton("cencel", new DialogInterface.OnClickListener() {
@@ -151,7 +148,7 @@ public class Register extends Activity implements View.OnClickListener{
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         if(requestCode == Permission_CAMERA){
             if(grantResults[0]==PackageManager.PERMISSION_GRANTED){
-                Toast.makeText(getApplicationContext(),"You did permission to the camera",Toast.LENGTH_LONG).show();
+//                Toast.makeText(getApplicationContext(),"You did permission to the camera",Toast.LENGTH_LONG).show();
                 takePicture();
             }
             else {
@@ -161,7 +158,7 @@ public class Register extends Activity implements View.OnClickListener{
         if(requestCode == GET_IMAGE_FROM_GALLERY){
             if(grantResults[0]==PackageManager.PERMISSION_GRANTED){
                 Toast.makeText(getApplicationContext(),"You did permission to the Gallery",Toast.LENGTH_LONG).show();
-                takePicture();
+                getImageFromGallery();
             }
             else {
                 Toast.makeText(getApplicationContext(),"You did not bring permission to the Gallery",Toast.LENGTH_LONG).show();
@@ -180,13 +177,12 @@ public class Register extends Activity implements View.OnClickListener{
                 break;
             case CAPTURE_IMAGE:
                 if(resultCode == RESULT_OK){
-                    Bitmap photo = (Bitmap) data.getExtras().get("data");
+                    Bitmap photo = (Bitmap)data.getExtras().get("data");
                     imageUri = getImageUri(Register.this,photo);
                     storageRef.putFile(imageUri);
                     MyImage.setImageBitmap(photo);
-
                 }
-
+                break;
         }
     }
 
@@ -199,15 +195,14 @@ public class Register extends Activity implements View.OnClickListener{
             Upload.setType("image/*");
             Upload.setAction(Intent.ACTION_GET_CONTENT);
             startActivityForResult(Upload,GET_IMAGE_FROM_GALLERY);
+
         }
         else {
             requestStoragerPermission();
         }
     }
-
     private void requestStoragerPermission() {
-
-        if(ActivityCompat.shouldShowRequestPermissionRationale(this,Manifest.permission.READ_EXTERNAL_STORAGE)){
+        if(ActivityCompat.shouldShowRequestPermissionRationale(Register.this,Manifest.permission.READ_EXTERNAL_STORAGE)){
             new AlertDialog.Builder(this).
                     setTitle("Permission needed").
                     setMessage("This Permission is for use the CAMERA :)").
@@ -228,9 +223,12 @@ public class Register extends Activity implements View.OnClickListener{
                     .create().show();
         }
         else{
-            ActivityCompat.requestPermissions(this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},Permission_CAMERA);
+            ActivityCompat.requestPermissions(Register.this,new String[]{Manifest.permission.READ_EXTERNAL_STORAGE},Permission_CAMERA);
         }
     }
+
+
+
 
     public void UplaodImage(){
         if (imageUri != null)
