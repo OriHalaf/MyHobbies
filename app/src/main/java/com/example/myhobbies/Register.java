@@ -190,7 +190,7 @@ public class Register extends Activity implements View.OnClickListener{
     // האלעת תמונה מתוך תיקיה בטלפון
     private void getImageFromGallery() {
         if(ContextCompat.checkSelfPermission(Register.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
-            Toast.makeText(Register.this,"You did permission to the camera",Toast.LENGTH_LONG).show();
+            Toast.makeText(Register.this,"You did permission to the GALLERY",Toast.LENGTH_LONG).show();
             Intent Upload = new Intent();
             Upload.setType("image/*");
             Upload.setAction(Intent.ACTION_GET_CONTENT);
@@ -205,7 +205,7 @@ public class Register extends Activity implements View.OnClickListener{
         if(ActivityCompat.shouldShowRequestPermissionRationale(Register.this,Manifest.permission.READ_EXTERNAL_STORAGE)){
             new AlertDialog.Builder(this).
                     setTitle("Permission needed").
-                    setMessage("This Permission is for use the CAMERA :)").
+                    setMessage("This Permission is for use the GALLERY :)").
                     setPositiveButton("ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
