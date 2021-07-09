@@ -15,6 +15,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
@@ -42,6 +43,8 @@ import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
 
 import java.io.ByteArrayOutputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.concurrent.atomic.AtomicMarkableReference;
 
 public class Register extends Activity implements View.OnClickListener{
@@ -173,6 +176,14 @@ public class Register extends Activity implements View.OnClickListener{
             case GET_IMAGE_FROM_GALLERY:
                 if(resultCode == RESULT_OK){
                     imageUri = data.getData();
+                    try {
+                        InputStream inputStream = getContentResolver().openInputStream(imageUri);
+                        Bitmap bitmap = BitmapFactory.decodeStream(inputStream);
+                        MyImage.setImageBitmap(bitmap);
+                    } catch (FileNotFoundException e) {
+                        e.printStackTrace();
+                    }
+
                 }
                 break;
             case CAPTURE_IMAGE:
@@ -205,7 +216,7 @@ public class Register extends Activity implements View.OnClickListener{
         if(ActivityCompat.shouldShowRequestPermissionRationale(Register.this,Manifest.permission.READ_EXTERNAL_STORAGE)){
             new AlertDialog.Builder(this).
                     setTitle("Permission needed").
-                    setMessage("This Permission is for use the CAMERA :)").
+                    setMessage("This Permission is for use the GALLERY :)").
                     setPositiveButton("ok", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialogInterface, int i) {
