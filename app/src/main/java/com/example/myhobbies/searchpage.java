@@ -1,26 +1,21 @@
 package com.example.myhobbies;
 
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageButton;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.ImageView;
-import android.widget.TextView;
-
-
-import com.bumptech.glide.Glide;
-import com.firebase.ui.database.FirebaseRecyclerAdapter;
-import com.firebase.ui.database.FirebaseRecyclerAdapter_LifecycleAdapter;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class searchpage extends AppCompatActivity {
+import java.time.Instant;
 
+public class searchpage extends AppCompatActivity {
+//
     EditText SearchLine;
     ImageButton BtnSearchView;
     RecyclerView recyclerList;
@@ -64,16 +59,18 @@ public class searchpage extends AppCompatActivity {
 
     public class UsersViewHolder extends RecyclerView.ViewHolder{
         View mView;
+        private Instant Glide;
+
         public UsersViewHolder(@NonNull View itemView) {
             super(itemView);
 
             mView = itemView;
         }
-        public void setDetails(String FirstName, String userImage){
-            TextView First_Name = (TextView) mView.findViewById(R.id.name);
-            ImageView user_Image = (ImageView) mView.findViewById(R.id.profileImage);
-            First_Name.setText(FirstName);
-            Glide.with(getApplicationContext()).load(userImage).into(user_Image);
-        }
+//        //public void setDetails(String FirstName, String userImage){
+//            TextView First_Name = (TextView) mView.findViewById(R.id.name);
+//            ImageView user_Image = (ImageView) mView.findViewById(R.id.profileImage);
+//            First_Name.setText(FirstName);
+//            Glide.with(getApplicationContext()).load(userImage).into(user_Image);
+//        }//
     }
 }
