@@ -18,6 +18,8 @@ import android.widget.ImageView;
 import androidx.appcompat.widget.Toolbar;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 
 public class ScrolBorger extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -26,6 +28,7 @@ public class ScrolBorger extends AppCompatActivity implements NavigationView.OnN
     NavigationView navigationView;
     Toolbar toolbar;
     ImageView Fitness;
+    FirebaseAuth mFirebaseUser;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,6 +42,7 @@ public class ScrolBorger extends AppCompatActivity implements NavigationView.OnN
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout,toolbar,
                 R.string.navigation_drawer_open,R.string.navigation_drawer_close);
 
+        mFirebaseUser = FirebaseAuth.getInstance();
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
@@ -99,9 +103,7 @@ public class ScrolBorger extends AppCompatActivity implements NavigationView.OnN
                 break;
 
             case R.id.nav_log_out:
-                Intent intentLogout = new Intent (ScrolBorger.this,MainActivity.class);
-                startActivity(intentLogout);
-                break;
+               Logout();
 
         }
 
@@ -111,4 +113,7 @@ public class ScrolBorger extends AppCompatActivity implements NavigationView.OnN
         return true;
     }
 
+    public void Logout(){
+        mFirebaseUser.signOut();
+    }
 }
