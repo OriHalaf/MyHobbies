@@ -64,7 +64,7 @@ public class Register extends Activity implements View.OnClickListener{
     String url;
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
-
+    //
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
