@@ -13,6 +13,7 @@
         android:layout_marginStart="144dp"
         android:layout_marginTop="352dp"
         android:text="Edei Profile Screen"
+        android:textSize="100dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
