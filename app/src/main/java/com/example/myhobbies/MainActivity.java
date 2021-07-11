@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     SharedPreferences.Editor editor;
     FirebaseAuth mAuth;
 
+    //  כאשר לא עושים יציאה הוא ילך ישר לדף הבית ולא להתחברות
     @Override
     protected void onStart() {
         super.onStart();

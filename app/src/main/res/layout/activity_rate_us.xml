@@ -13,12 +13,14 @@
         android:layout_height="wrap_content"
         android:text="Rate Us"
         android:textSize="50dp"/>
-
     <EditText
         android:id="@+id/ToSend"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:padding="12dp"
         android:inputType="textEmailAddress"
+
         android:background="@drawable/bg_round"
         />
     <EditText

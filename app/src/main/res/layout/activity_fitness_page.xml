@@ -36,7 +36,7 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="15dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/MaxxFitnessLOGO"
+                android:src="@drawable/maxx"
                 app:layout_collapseMode="parallax" />
 
             <androidx.appcompat.widget.Toolbar

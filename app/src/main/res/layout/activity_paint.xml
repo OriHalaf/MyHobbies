@@ -36,9 +36,8 @@
                 android:layout_gravity="center"
                 android:layout_marginBottom="15dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/paintlogo"
+                android:src="@drawable/add_icon"
                 app:layout_collapseMode="parallax" />
-
             <androidx.appcompat.widget.Toolbar
                 android:id="@+id/toolbar"
                 android:layout_width="match_parent"

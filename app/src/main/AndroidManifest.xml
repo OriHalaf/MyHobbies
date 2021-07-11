@@ -21,14 +21,11 @@
         <activity android:name=".photograff_page" />
         <activity android:name=".fitness_page" />
         <activity android:name=".list_layout" />
-        <activity android:name=".Fitness" />
         <activity android:name=".searchpage" />
-        <activity android:name=".Food" />
         <activity android:name=".Profile" />
         <activity android:name=".Share" />
         <activity android:name=".SecendActivity" />
         <activity android:name=".RateUs" />
-        <activity android:name=".log_out" />
         <activity android:name=".edit_profile" />
         <activity android:name=".add_new_category" />
         <activity android:name=".ScrolBorger" />
