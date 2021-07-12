@@ -175,7 +175,6 @@ public class ScrolBorger extends AppCompatActivity implements NavigationView.OnN
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 activity.finishAffinity();
-
                 System.exit(0);
             }
         });
@@ -185,7 +184,6 @@ public class ScrolBorger extends AppCompatActivity implements NavigationView.OnN
                 dialogInterface.dismiss();
             }
         });
-
         builder.show();
 
     }

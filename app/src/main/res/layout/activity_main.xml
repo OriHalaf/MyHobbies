@@ -83,15 +83,6 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="0.2" />
 
-            <TextView
-                android:id="@+id/textView11"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                android:layout_gravity="center"
-                android:layout_weight="1"
-                android:text="Go to Register "
-                android:textAlignment="center"
-                android:textSize="18sp" />
 
 
             <Button
@@ -101,11 +92,25 @@
                 android:layout_gravity="center"
                 android:layout_weight="1"
                 android:background="#CA6C40"
-                android:text="Register"
+                android:text="SignUp"
                 android:textAlignment="center"
                 android:textColor="@color/colorAccent"
                 android:textSize="20sp" />
-
+            <Space
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.2" />
+            <Button
+                android:id="@+id/ForgotPass"
+                android:layout_width="100dp"
+                android:layout_height="0dp"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:background="#CA6C40"
+                android:text="ForgotPass"
+                android:textAlignment="center"
+                android:textColor="@color/colorAccent"
+                android:textSize="20sp" />
         </LinearLayout>
 
         <Space
