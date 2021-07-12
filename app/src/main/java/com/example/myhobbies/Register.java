@@ -301,6 +301,15 @@ public class Register extends Activity implements View.OnClickListener{
 
 
     }
+
+//    changeProfileImage.setOnClickListener((v) -> {
+//        //open gallery
+//        Intent i = new Intent(v.getContext(),edit_profile.class);
+//        i.putExtra("FirstName",FirstName.getText().toString());
+//        i.putExtra("Email",Email.getText().toString());
+//        startActivity(i);
+//    });
+
 }
 
 
