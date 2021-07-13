@@ -9,8 +9,6 @@ public class Users {
     String Profile;
 
 
-    public Users() {
-    }
 
     public Users(String toString, String toString1, String email, String profile) {
         this.FirstName = toString;

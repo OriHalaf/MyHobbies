@@ -179,7 +179,6 @@ public class Register extends Activity implements View.OnClickListener{
         }
     }
 
-
     // האלעת תמונה מתוך תיקיה בטלפון
     private void getImageFromGallery() {
         if(ContextCompat.checkSelfPermission(Register.this, Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED){
@@ -302,14 +301,7 @@ public class Register extends Activity implements View.OnClickListener{
 
     }
 
-//    changeProfileImage.setOnClickListener((v) -> {
-//        //open gallery
-//        Intent i = new Intent(v.getContext(),edit_profile.class);
-//        i.putExtra("FirstName",FirstName.getText().toString());
-//        i.putExtra("Email",Email.getText().toString());
-//        startActivity(i);
-//    });
-    //
+
 
 }
 

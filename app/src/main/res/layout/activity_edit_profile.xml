@@ -6,10 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".edit_profile">
 
-
-
     <EditText
-        android:id="@+id/MyNameTextView"
+        android:id="@+id/FirstName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -17,7 +15,7 @@
         android:layout_marginEnd="24dp"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="Name"
+        android:hint="First Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteX="23dp"
@@ -25,15 +23,14 @@
         tools:ignore="MissingConstraints,UnknownId" />
 
     <EditText
-        android:id="@+id/MyEmailTextView"
+        android:id="@+id/LastName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
         android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
+        android:hint="Last Name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         tools:layout_editor_absoluteX="23dp"
@@ -41,7 +38,7 @@
         tools:ignore="MissingConstraints,UnknownId" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
@@ -53,12 +50,26 @@
         tools:layout_editor_absoluteY="582dp"
         tools:ignore="MissingConstraints" />
 
+
+
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/ChangeImage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         tools:layout_editor_absoluteX="141dp"
         tools:layout_editor_absoluteY="31dp"
         tools:src="@tools:sample/avatars"
         tools:ignore="MissingConstraints" />
+
+    <Button
+        android:id="@+id/btnImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="148dp"
+        android:padding="5dp"
+        android:text="Change Image"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="177dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

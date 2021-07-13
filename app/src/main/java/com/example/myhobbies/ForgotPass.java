@@ -26,7 +26,6 @@ public class ForgotPass extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_pass);
 
-
         userMail = findViewById(R.id.userMail);
         btnForgot = findViewById(R.id.btnForgot);
         userPass = FirebaseAuth.getInstance();
@@ -42,7 +41,6 @@ public class ForgotPass extends AppCompatActivity {
                         }
                         else {
                             Toast.makeText(ForgotPass.this,task.getException().getMessage(),Toast.LENGTH_LONG).show();
-
                         }
                     }
                 });

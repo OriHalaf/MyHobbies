@@ -13,6 +13,6 @@ public class DfPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_df_page);
 
-        linkTextView = findViewById(R.id.Foodlink);
+//        linkTextView = findViewById(R.id.Foodlink);
     }
 }
