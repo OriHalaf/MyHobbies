@@ -12,6 +12,8 @@ import android.service.textservice.SpellCheckerService;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+
 import java.util.Properties;
 
 
@@ -22,7 +24,8 @@ import java.util.Properties;
 
 public class RateUs extends AppCompatActivity {
 
-    EditText Edit_Text_Subject,Subject,ToSend;
+    EditText Edit_Text_Subject,Subject;
+    TextView ToSend;
     Button btnSend;
 
     @Override

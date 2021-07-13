@@ -36,7 +36,6 @@
                 android:scaleType="centerCrop"
                 android:layout_gravity="center"
                 android:layout_marginBottom="15dp"
-                android:src="@drawable/foodlogo"
                 app:layout_collapseMode="parallax"/>
 
             <androidx.appcompat.widget.Toolbar
@@ -128,30 +127,45 @@
                 android:id="@+id/textView"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
                 android:text="Food is any substance[1] consumed to provide nutritional support for an organism. Food is usually of plant, animal or fungal origin, and contains essential nutrients, such as carbohydrates, fats, proteins, vitamins, or minerals. The substance is ingested by an organism and assimilated by the organism's cells to provide energy, maintain life, or stimulate growth. Different species of animals have different feeding behaviours that satisfy the needs of their unique metabolisms, often evolved to fill a specific ecological niche within specific geographical contexts."
                 android:textSize="14sp"
+                app:layout_constraintVertical_bias="0"
+                android:layout_marginTop="30dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/date"
-                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/profile"
                 app:layout_constraintTop_toBottomOf="@+id/profile"
-                app:layout_constraintVertical_bias="0.0" />
-            <Space
-                android:layout_width="match_parent"
-                android:layout_height="400dp"
-                android:layout_weight="1"
-                tools:ignore="MissingConstraints" />
+                />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/Foodlink"
-                android:layout_marginEnd="235dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                android:id="@+id/Foodlink"
-                tools:ignore="MissingConstraints" />
+                <Button
+
+                    android:id="@+id/adopt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/button_bg"
+                    android:paddingTop="10dp"
+                    android:paddingBottom="10dp"
+                    android:text="Comment"
+                    android:textAllCaps="false"
+                    android:textSize="18sp"
+                    android:layout_marginTop="40dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textView"/>
+
+
+
+
+
+
+
+
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
+
+
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
@@ -165,5 +179,9 @@
         app:fabSize="normal"
         app:layout_anchor="@id/appbar"
         app:layout_anchorGravity="end|bottom"
+
         />
+
+
+
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -15,7 +15,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
-        <activity android:name=".Author"></activity>
+        <activity android:name=".ForgotPass"></activity>
+        <activity android:name=".Author" />
         <activity android:name=".paint" />
         <activity android:name=".surf_page" />
         <activity android:name=".photograff_page" />
