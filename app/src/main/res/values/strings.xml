@@ -3,5 +3,10 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-
+    <string name="Foodlink">Pleas visit <a href="https://www.food.com/">food site</a></string>
+    <string name="Fitnesslink">Pleas visit <a href="https://www.fitnessblender.com/">Fitness site</a></string>
+    <string name="Paintlink">Pleas visit <a href="https://www.abcya.com/games/abcya_paint">paint site</a></string>
+    <string name="Authorlink">Pleas visit <a href="https://www.harpercollins.com/blogs/authors">author site</a></string>
+    <string name="Surflink">Pleas visit <a href="https://magicseaweed.com/Israel-Surf-Forecast/90/">surf site</a></string>
+    <string name="Photografflink">Pleas visit <a href="https://www.photograff.fr/">photograff site</a></string>
 </resources>
