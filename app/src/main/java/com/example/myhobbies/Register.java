@@ -309,6 +309,7 @@ public class Register extends Activity implements View.OnClickListener{
 //        i.putExtra("Email",Email.getText().toString());
 //        startActivity(i);
 //    });
+    //
 
 }
 
